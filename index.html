@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Athlete</title>
+<style>
+        button {
+            margin: 5px 5px 5px 5px
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Athlete</h1>
+
+    <div id="app">
+
+        <button class="btn btn-warning" v-on:click="cleanList">Clean the list</button>
+        
+        <!-- GET ALL -->
+        <button id="getAllButton" v-on:click="getAllAthletes" class="btn btn-primary">Get all Athletes</button>
+        <br />
+
+            <table v-if="athletes.length" class="table table-striped">
+            <tr v-for="ath in athletes">
+                <td> Id: {{ath.id}} </td>
+                <td> Name: {{ath.name}} </td>
+                <td> Country: {{ath.country}} </td>
+                <td> Height: {{ath.height}} </td>
+            </tr>
+        </table>
+        <div v-else>No Athlete found!</div> 
+
+        <!-- DELETE -->
+        <input v-model.number="deleteId" placeholder="id" type="number" />
+        <button v-on:click="deleteAthlete(deleteId)" class="btn btn-warning">Delete</button>
+        {{deleteMessage}}
+        <br />
+
+         <!-- Add -->
+        <input v-model="addData.name" placeholder="name" type="text" />
+        <input v-model="addData.country" placeholder="country" type="text" />
+        <input v-model.number="addData.height" placeholder="height" type="number" />
+        <button v-on:click="addAthlete()" class="btn btn-success">Add</button>
+        <div>{{addMessage}}</div>
+
+
+    </div>
+
+    <script src="js/index.js"></script>
+    
+</body>
+
+
+</html>
+
+
