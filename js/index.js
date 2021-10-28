@@ -6,8 +6,8 @@ data() {
         athletes: [],
         error: null,
         athleteId: "",
-        singleAthlete: null,
-        idToGetBy: null,
+        singleAthlete: "",
+        countryToGetBy: "",
         deleteId: 0,
         deleteMessage: "",
         addData: { name: "", country: "", height: ""},
@@ -41,16 +41,16 @@ methods: {
         }
     },
 
-//    async getById(id) {
-//         const url = baseUrl + "/" + id
-//         try {
-//             const response = await axios.get(url)
-//             this.singleHop = await response.data
-//         } catch (ex) {
-//             alert(ex.message)
-//         }
+    async getByCountry(country) {
+        const url = baseUrl + "?country" + country
+        try {
+            const response = await axios.get(url)
+            this.singleAthlete = await response.data
+        } catch (ex) {
+            alert(ex.message)
+        }
         
-//     },
+    },
 
     async deleteAthlete(deleteId) {
         const url = baseUrl + "/" + deleteId
@@ -82,17 +82,7 @@ methods: {
         }
         },
 
-    async helperGetAthletes(url) {
-        try {
-            const response = await axios.get(url)
-            this.athletes = await response.data
-            this.error = null
-        } catch (ex) {
-            this.athletes = []
-            this.error = ex.message
-        }
-        },
-
+   
         async cleanList() {
             this.athletes = []
             this.error = null

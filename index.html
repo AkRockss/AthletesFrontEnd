@@ -38,6 +38,17 @@
             </tr>
         </table>
         <div v-else>No Athlete found!</div> 
+        <br />
+
+        <!-- Get BY COUNTRY -->
+        <h1>SORT</h1>
+        <input v-model="countryToGetBy" placeholder="Country" type="text" />
+        <button v-on:click="getByCountry(countryToGetBy)" class="btn btn-primary">Get by country</button>
+        <div v-if="singleAthlete">
+            Id : {{singleAthlete.id}} - Name: {{singleAthlete.name}} - Country: {{ singleAthlete.country}} - Height: {{singleAthlete.height}}
+        </div>
+        <div v-else>No Country found!</div> 
+        <br />
 
         <!-- DELETE -->
         <input v-model.number="deleteId" placeholder="id" type="number" />
