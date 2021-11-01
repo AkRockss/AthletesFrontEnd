@@ -6,8 +6,8 @@ data() {
         athletes: [],
         error: null,
         athleteId: "",
-        singleAthlete: "",
-        countryToGetBy: "",
+        singleAthlete: [],
+        countryToGetBy: null,
         deleteId: 0,
         deleteMessage: "",
         addData: { name: "", country: "", height: ""},
@@ -42,7 +42,7 @@ methods: {
     },
 
     async getByCountry(country) {
-        const url = baseUrl + "?country" + country
+        const url = baseUrl + "/" + country
         try {
             const response = await axios.get(url)
             this.singleAthlete = await response.data

@@ -41,11 +41,11 @@
         <br />
 
         <!-- Get BY COUNTRY -->
-        <h1>SORT</h1>
+        <h1>Get by country</h1>
         <input v-model="countryToGetBy" placeholder="country" type="text" />
         <button v-on:click="getByCountry(countryToGetBy)" class="btn btn-primary">Get by country</button>
-        <div v-if="singleAthlete">
-            Id : {{singleAthlete.id}} - Name: {{singleAthlete.name}} - Country: {{ singleAthlete.country}} - Height: {{singleAthlete.height}}
+        <div v-for="s in singleAthlete">
+            Id : {{s.id}} - Name: {{s.name}} - Country: {{s.country}} - Height: {{s.height}}
         </div>
         <div v-else>No Country found!</div> 
         <br />
