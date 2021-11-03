@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "appService.defaultWebAppToDeploy": "/subscriptions/83ad5148-9e1c-46d2-bcd6-124fb391a84b/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/AkAthletesFrontEndPublish",
+    "appService.deploySubpath": "."
 }

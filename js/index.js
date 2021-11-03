@@ -22,7 +22,7 @@ async created() {
     // created() is a life cycle method, not an ordinary method
     // created() is called automatically when the page is loaded
     console.log("created method called")
-    this.helperGetPosts(baseUrl)
+    this.helperGetAndShow(baseUrl)
 },
 
 methods: {
@@ -40,11 +40,12 @@ methods: {
         }
     },
 
+
    async sortTable() {
         const url = baseUrl + "?sort_by=height"
         try {
-            const response = await axiox.get(url)
-            this.singleAthlete = await response.data
+            const response = await axios.get(url)
+            this.athletes = await response.data
         } catch (ex) {
             alert(ex.message)
         }
