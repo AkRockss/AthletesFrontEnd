@@ -24,8 +24,26 @@
     <div id="app">
 
         <button class="btn btn-warning" v-on:click="cleanList">Clean the list</button>
-        
-        <!-- GET ALL -->
+
+
+         <!-- GET ALL With Sort-->
+    
+         <button id="getAllButton" v-on:click="getAllAthletes" class="btn btn-primary">Get all Athletes</button>
+         <button id="sortByHeight" v-on:click="sortTable" class="btn btn-primary">Sort by height</button>
+         <br />
+ 
+             <table v-if="athletes.length" class="table table-striped">
+             <tr v-for="ath in athletes">
+                 <td> Id: {{ath.id}} </td>
+                 <td> Name: {{ath.name}} </td>
+                 <td> Country: {{ath.country}} </td>
+                 <td> Height: {{ath.height}} </td>
+             </tr>
+         </table>
+         <div v-else>No Athlete found!</div> 
+         <br />
+
+        <!-- GET ALL
         <button id="getAllButton" v-on:click="getAllAthletes" class="btn btn-primary">Get all Athletes</button>
         <br />
 
@@ -38,7 +56,7 @@
             </tr>
         </table>
         <div v-else>No Athlete found!</div> 
-        <br />
+        <br /> -->
 
         <!-- Get BY COUNTRY -->
         <h1>Get by country</h1>

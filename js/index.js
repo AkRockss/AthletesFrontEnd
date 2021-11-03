@@ -13,8 +13,7 @@ data() {
         addData: { name: "", country: "", height: ""},
         addMessage: "",
         updateData: { id: 0, name: "", country: "", height: ""},
-        updateMessage: ""
-
+        updateMessage: "",
 
     }
 },
@@ -40,6 +39,18 @@ methods: {
             alert(ex.message) 
         }
     },
+
+   async sortTable() {
+        const url = baseUrl + "?sort_by=height"
+        try {
+            const response = await axiox.get(url)
+            this.singleAthlete = await response.data
+        } catch (ex) {
+            alert(ex.message)
+        }
+
+    },
+
 
     async getByCountry(country) {
         const url = baseUrl + "/" + country
